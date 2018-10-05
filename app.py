@@ -9,10 +9,6 @@ mlab.connect()
 
 @app.route("/", methods=["GET","POST"])
 def caculate():
-<<<<<<< HEAD
-    menu = Menu.objects()
-=======
->>>>>>> 11846f12e8998782344372d66b1a81bf2e0109e9
     if request.method == "GET":
         return render_template("function.html")
     elif request.method == "POST":
@@ -29,7 +25,8 @@ def caculate():
                 bmr= raw_bmr+5
             elif sex == "female":
                 bmr= raw_bmr-161
-        
+
+#Tính chỉ số TDEE giữ cân:       
         if exercise == 0:
             need = bmr*1.2
         elif exercise == 1:
@@ -40,16 +37,25 @@ def caculate():
             need = bmr*1.725
         elif exercise == 4: 
             need = bmr*1.9
-<<<<<<< HEAD
         
-        return redirect(url_for("menu", need=need, bmr=bmr)) #bmr=str(bmr), need=str(need), menu=menu)
-=======
-        return redirect(url_for("bmr", need=need, bmr=bmr))
-        # return render_template("bmr.html", bmr=str(bmr), need=str(need), post=menu)
->>>>>>> 11846f12e8998782344372d66b1a81bf2e0109e9
+#Tính chỉ số BMI, gợi ý tăng giảm cân
+        bmi = weight/((height/100)**2)
+        if bmi < 18.5:
+            status = "Gầy"
+            suggest = need*1.2
+        elif 18.5 <= bmi <24.9:
+            status = "Bình thường"
+            suggest = need
+        else:
+            status = "Béo"
+            suggest = need*0.8
 
-@app.route("/menu/<float:need>/<float:bmr>")
-def menu(need, bmr):
+        return redirect(url_for("menu", need=need, bmr=bmr, bmi=bmi, status=status, suggest=suggest))
+        
+@app.route("/menu/<float:need>/<float:bmr>/<status>/<float:suggest>")
+def menu(need, bmr, status, suggest):
+
+#Phân loại món ăn
     menu = Menu.objects()
     breakfasts = Menu.objects(category="Ăn sáng")
     rices = Menu.objects(category="Cơm")
@@ -60,40 +66,32 @@ def menu(need, bmr):
     
     menu_list=[]
 
-<<<<<<< HEAD
+#Công thức tính tổng lượng 
     breakfast = choice(breakfasts)
-    print(type(need))
-    print(type(breakfast['calori']))
-    need1 = need - breakfast["calori"]
+    suggest1 = suggest - breakfast["calori"]
     rice = choice(rices)
-    need2 = need1 - 2*rice["calori"]
-    meat = choice(meats)
-    need3 = need2 - 2*meat["calori"]
-    veg = choice(vegs)
-    need4 = need3 - 2*veg["calori"]
-    print(breakfast)
+    suggest2 = suggest1 - rice["calori"]
+    meat1 = choice(meats)
+    meat2 = choice(meats)
+    suggest3 = suggest2 - meat1["calori"] - meat2["calori"]
+    veg1 = choice(vegs)
+    veg2 = choice(vegs)
+    suggest4 = suggest3 - veg1["calori"] - veg2["calori"]
+    
     menu_list.append(breakfast)
     menu_list.append(rice)
-    menu_list.append(meat)
-    menu_list.append(veg)
-    for snack in snacks:
-        if 0 <= snack["calori"] <= 0.2*need is True:
-            menu_list.append[snack]
-        else: 
-            pass
-    print(menu_list)
-    # return render_template('menu.html', menu=menu)
-    return render_template('menu.html', breakfast = breakfast, bmr=bmr, need=need, snacks=snacks)
-=======
-@app.route("/bmr/<need>/<bmr>")
-def bmr(need, bmr):
+    menu_list.append(meat1)
+    menu_list.append(meat2)
+    menu_list.append(veg1)
+    menu_list.append(veg2)
     
-    food = Menu.objects(category="rau")
-    # return "abc"
-    return render_template("bmr.html", mondays = mondays)
-
-
->>>>>>> 11846f12e8998782344372d66b1a81bf2e0109e9
+    snack = choice(snacks)
+    if suggest4 < snack["calori"]:
+        snack = choice(snacks)
+    else:
+        menu_list.append(snack)
+    
+    return render_template('menu.html', bmr=bmr, status=status, need=need, suggest=suggest, menu_list=menu_list)
 
 if __name__ == "__main__":
     app.run(debug=True)

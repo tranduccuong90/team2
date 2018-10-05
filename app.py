@@ -1,12 +1,14 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 import mlab
 from post import Post
+from menu import Menu
 
 app = Flask(__name__)
 mlab.connect()
 
 @app.route("/", methods=["GET","POST"])
 def caculate():
+    menu = Post.objects()
     if request.method == "GET":
         return render_template("function.html")
     elif request.method == "POST":
@@ -35,7 +37,13 @@ def caculate():
         elif exercise == 4: 
             need = bmr*1.9
         
-        return render_template("bmr.html", bmr=str(bmr), need=str(need))
+        return render_template("bmr.html", bmr=str(bmr), need=str(need), post=menu)
+
+@app.route("/menu/<post_id>")
+def menu(post_id):
+    menu = Menu.objects().with_id(post_id)
+    return render_template('menu.html', menu=menu)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

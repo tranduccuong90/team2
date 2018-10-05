@@ -1,0 +1,36 @@
+body { 
+        background-image: url('https://www.healthyfood.co.nz/wp-content/uploads/2016/11/OCT-18_HFG-Website-Homepage-Images-_2500x842_5.jpg');
+        
+    }
+.cover {
+        display: inline-block;
+        float: right;
+        padding-right: 200px;
+        padding-left: 20px;
+        margin-bottom: 32px;
+        margin-top:32px;
+        padding:20px;
+        background: rgba(154, 235, 201, 0.5); 
+}
+.top {  
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color:#74ad3e;
+}
+#logo{
+        width: 400px;
+        height: 100px;
+
+}
+#word{
+        font-family: Helvetica, sans-serif;
+        /* position: absolute; */
+}
+#box{
+       font-size: 20px ;
+       padding-left: 20px;
+}
+.gallery{
+        width="600" height="400";
+}

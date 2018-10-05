@@ -56,7 +56,10 @@ def caculate():
 def menu(need, bmr, status, suggest):
 
 #Phân loại món ăn
+<<<<<<< HEAD
     menu_week = []
+=======
+>>>>>>> ece89aa87fb8c32b36589159de4920e269c65011
     menu = Menu.objects()
     breakfasts = Menu.objects(category="Ăn sáng")
     rices = Menu.objects(category="Cơm")
@@ -65,6 +68,7 @@ def menu(need, bmr, status, suggest):
     fruits = Menu.objects(category="hoa qua") 
     snacks = Menu.objects(category="món phụ")
     
+<<<<<<< HEAD
 
     for i in range(7):
         menu_list=[]
@@ -98,6 +102,36 @@ def menu(need, bmr, status, suggest):
     print(menu_week)
     # return 'abc'
     return render_template('menu.html', bmr=bmr, status=status, need=need, suggest=suggest, menu_week=menu_week)
+=======
+    menu_list=[]
+
+#Công thức tính tổng lượng 
+    breakfast = choice(breakfasts)
+    suggest1 = suggest - breakfast["calori"]
+    rice = choice(rices)
+    suggest2 = suggest1 - rice["calori"]
+    meat1 = choice(meats)
+    meat2 = choice(meats)
+    suggest3 = suggest2 - meat1["calori"] - meat2["calori"]
+    veg1 = choice(vegs)
+    veg2 = choice(vegs)
+    suggest4 = suggest3 - veg1["calori"] - veg2["calori"]
+    
+    menu_list.append(breakfast)
+    menu_list.append(rice)
+    menu_list.append(meat1)
+    menu_list.append(meat2)
+    menu_list.append(veg1)
+    menu_list.append(veg2)
+    
+    snack = choice(snacks)
+    if suggest4 < snack["calori"]:
+        snack = choice(snacks)
+    else:
+        menu_list.append(snack)
+    
+    return render_template('menu.html', bmr=bmr, status=status, need=need, suggest=suggest, menu_list=menu_list)
+>>>>>>> ece89aa87fb8c32b36589159de4920e269c65011
 
 if __name__ == "__main__":
     app.run(debug=True)

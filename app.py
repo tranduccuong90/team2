@@ -9,7 +9,10 @@ mlab.connect()
 
 @app.route("/", methods=["GET","POST"])
 def caculate():
+<<<<<<< HEAD
     menu = Menu.objects()
+=======
+>>>>>>> 11846f12e8998782344372d66b1a81bf2e0109e9
     if request.method == "GET":
         return render_template("function.html")
     elif request.method == "POST":
@@ -37,8 +40,13 @@ def caculate():
             need = bmr*1.725
         elif exercise == 4: 
             need = bmr*1.9
+<<<<<<< HEAD
         
         return redirect(url_for("menu", need=need, bmr=bmr)) #bmr=str(bmr), need=str(need), menu=menu)
+=======
+        return redirect(url_for("bmr", need=need, bmr=bmr))
+        # return render_template("bmr.html", bmr=str(bmr), need=str(need), post=menu)
+>>>>>>> 11846f12e8998782344372d66b1a81bf2e0109e9
 
 @app.route("/menu/<float:need>/<float:bmr>")
 def menu(need, bmr):
@@ -52,6 +60,7 @@ def menu(need, bmr):
     
     menu_list=[]
 
+<<<<<<< HEAD
     breakfast = choice(breakfasts)
     print(type(need))
     print(type(breakfast['calori']))
@@ -75,6 +84,16 @@ def menu(need, bmr):
     print(menu_list)
     # return render_template('menu.html', menu=menu)
     return render_template('menu.html', breakfast = breakfast, bmr=bmr, need=need, snacks=snacks)
+=======
+@app.route("/bmr/<need>/<bmr>")
+def bmr(need, bmr):
+    
+    food = Menu.objects(category="rau")
+    # return "abc"
+    return render_template("bmr.html", mondays = mondays)
+
+
+>>>>>>> 11846f12e8998782344372d66b1a81bf2e0109e9
 
 if __name__ == "__main__":
     app.run(debug=True)

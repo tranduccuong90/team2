@@ -8,7 +8,6 @@ mlab.connect()
 
 @app.route("/", methods=["GET","POST"])
 def caculate():
-    menu = Post.objects()
     if request.method == "GET":
         return render_template("function.html")
     elif request.method == "POST":
@@ -36,13 +35,21 @@ def caculate():
             need = bmr*1.725
         elif exercise == 4: 
             need = bmr*1.9
-        
-        return render_template("bmr.html", bmr=str(bmr), need=str(need), post=menu)
+        return redirect(url_for("bmr", need=need, bmr=bmr))
+        # return render_template("bmr.html", bmr=str(bmr), need=str(need), post=menu)
 
 @app.route("/menu/<post_id>")
 def menu(post_id):
     menu = Menu.objects().with_id(post_id)
     return render_template('menu.html', menu=menu)
+
+@app.route("/bmr/<need>/<bmr>")
+def bmr(need, bmr):
+    
+    food = Menu.objects(category="rau")
+    # return "abc"
+    return render_template("bmr.html", mondays = mondays)
+
 
 
 if __name__ == "__main__":

@@ -1,5 +1,4 @@
 import mongoengine
-import xlrd
 
 #mongodb://<dbuser>:<dbpassword>@ds121373.mlab.com:21373/project
 
@@ -20,13 +19,9 @@ def list2json(l):
 
 def item2json(item):
     import json
-<<<<<<< HEAD
-    return json.loads(item.to_json())
-=======
     return json.loads(item.to_json())
 
 
 
 
 
->>>>>>> f213e12fc7b5192501b2b1b289776f866ae6806b

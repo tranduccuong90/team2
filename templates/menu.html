@@ -7,11 +7,16 @@
     <title>Menu planning</title>
 </head>
 <body>
+    <div>BMI của bạn là</div>
+    <div>BMR của bạn là: {{ bmr }}</div>
+    <div>Lượng calorie mà bạn cần trong ngày là: {{ need }}</div>
+
     <h3>Danh sách món ăn</h3>
-    <div>{{ menu.title }} - {{ menu.unit }}</div>
-    <div>{{ menu.calori }} calorie</div>
-    <div>{{ menu.category }}</div>
-    <div><img src="{{ menu.image_link }}" alt=""></div>
+    <div>{{ breakfast.title }} {{ breakfast.unit}}</div>
+    <div>{{ breakfast.calori}}</div>
+    {% for snack in snacks %}
+        {{snack.title}}
+    {% endfor %}
 
 </body>
 </html>

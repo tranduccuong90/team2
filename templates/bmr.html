@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BMR</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <div class="top"  ><img id="logo" src="https://raw.githubusercontent.com/tranduccuong90/team2/master/logo.png" alt="logo.png"></div>
+</head>
+<body>
+    <style>
+        body{
+        background-color: rgb(201, 245, 201);
+        font-family: Helvetica, sans-serif;
+        }
+    </style>
+
+    <form id="box" >
+    <p ><strong><i>BMR của bạn là: {{ bmr }}</i></strong></p>
+    <p ><strong><i>Lượng calorie mà bạn cần trong ngày là: {{ need }}</i></strong></p>
+    </form>
+    {% for day in week %}
+        
+            <p>{{day}}</p>
+            <div >
+                <img class="gallery"  src="{{breakfast.image_link}}" ><p>{{breakfast.title}}-{{breakfast.category}}</p>
+                <img class="gallery" src="{{rice.image_link}}" ><p>{{breakfast.title}}-{{rice.category}}</p>
+                <img class="gallery"  src="{{fruit.image_link}}" ><p>{{fruit.title}}-{{fruit.category}}</p>
+                <img class="gallery"  src="{{veg.image_link}}" ><p>{{veg.title}}-{{veg.category}}</p>
+                <img class="gallery"  src="{{snack.image_link}}" ><p>{{snack.title}}-{{snack.category}}</p>
+            </div>
+    {% endfor %}
+</body>
+</html>

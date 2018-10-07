@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Function for BMR</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        .top {  
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color:#74ad3e;
+        }
+
+        #logo{
+                width: 400px;
+                height: 100px;
+
+        }
+        .box{
+            display: block;
+            background-image: url("https://www.lady-4-lady.ru/wp-content/uploads/2017/01/1484909266-62a2ff7edc4216015813847970e09b97.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            font-size: 30%;
+            font-family: Helvetica;
+            
+            
+
+        }
+        #blur{
+            display: inline-block;
+
+            block-size:  100%;
+            background: rgba(239, 245, 234, 0.5);
+        }
+        #flex{
+            display: inline-block;
+            float:right;
+            font-size: 150%;
+            color:#74ad3e;
+        
+        }
+        #tip{
+
+        background: rgba(225, 246, 208, 0.5); 
+
+        }
+
+    </style>
+    
+
+</head>
+<body>
+    <div class="top"  ><img id="logo" src="https://raw.githubusercontent.com/tranduccuong90/team2/master/logo.png" alt="logo.png"></div>
+    <div class="box">
+        <h2 id="blur"> <strong>Tình trạng: {{ status }}    </strong> </h2>                                         <br>
+        <h2 id="blur"><strong>Lượng calorie để giữ cân: {{ need }} calorie/ngày </strong> </h2>                       <br>
+        <h2 id="blur"> <strong>Lượng calorie khuyến cáo: {{ suggest }} calorie/ngày </strong></h2>
+    </div>
+    <br>
+    <div id="flex"><strong><i>thực đơn chúng tôi khuyên bạn trong 1 tuần</i></strong></div> <br>s
+   
+    <div id="tip">
+    {% for menu_list in menu_week %}
+        <div class="row">
+            <div class="col-4">
+                {% if loop.index+1 == 8 %}
+                    Chủ nhật <br>
+                {% else %}
+                    Thứ: {{loop.index+1}} <br>
+                {% endif %}
+            </div>
+            <div class="col-8 row">
+                {% for item in menu_list %}
+                <div class="col-3">
+                    <img src="{{item.image_link}}" alt="" width="200px" height="200px" style="image-size:cover">
+                    <div class="text-center font-weight-bold">{{ item.title }} - {{ item.unit }}</div>
+                    <div class="text-center font-weight-bold">({{ item.calori }} calori)</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+    
+    </div>
+
+</body>
+</html>

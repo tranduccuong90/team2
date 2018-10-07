@@ -1,36 +1,57 @@
 body { 
-        background-image: url('https://www.healthyfood.co.nz/wp-content/uploads/2016/11/OCT-18_HFG-Website-Homepage-Images-_2500x842_5.jpg');
-        
-    }
+        background-image: url('http://ew.content.allrecipes.com/sites/default/files/2017-08/1-day-diabetes-plan-dl-102775691_1.jpg');
+        height: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin: 0;
+        font-family: Helvetica, sans-serif;
+}
 .cover {
         display: inline-block;
-        float: right;
-        padding-right: 200px;
-        padding-left: 20px;
-        margin-bottom: 32px;
-        margin-top:32px;
-        padding:20px;
-        background: rgba(154, 235, 201, 0.5); 
+        float: right;      
+        margin-bottom: 16px;
+        
+        padding:100px;
+        background: rgba(225, 246, 208, 0.5); 
 }
 .top {  
         display: flex;
         padding-top: 20px;
         padding-bottom: 20px;
         background-color:#74ad3e;
+        width: 100%;
+        
 }
 #logo{
         width: 400px;
         height: 100px;
 
 }
-#word{
-        font-family: Helvetica, sans-serif;
-        /* position: absolute; */
-}
+
 #box{
        font-size: 20px ;
        padding-left: 20px;
 }
-.gallery{
-        width="600" height="400";
+
+.bmi{
+      
+                background: rgba(225, 246, 208, 0.5);
+                padding :20px;
+                margin-bottom: 32px;
+                padding:25px;
+                font-size:18px;
+     
+}
+#footer{
+        position: fixed;
+        left:0;
+        bottom: 0;
+        width: 100%;
+        font-size: 50%;
+        background-color: rgba(225, 246, 208, 0.5);
+        color: black;
+        text-align: right;
+
 }

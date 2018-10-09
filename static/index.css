@@ -1,5 +1,4 @@
 body { 
-        background-image: url('http://ew.content.allrecipes.com/sites/default/files/2017-08/1-day-diabetes-plan-dl-102775691_1.jpg');
         height: 10px;
         background-position: center;
         background-repeat: no-repeat;
@@ -18,16 +17,10 @@ body {
 }
 .top {  
         display: flex;
+        background-image:
         padding-top: 20px;
         padding-bottom: 20px;
-        background-color:#74ad3e;
         width: 100%;
-        
-}
-#logo{
-        width: 400px;
-        height: 100px;
-
 }
 
 #box{
@@ -55,3 +48,40 @@ body {
         text-align: right;
 
 }
+
+#logo{
+                width: 400px;
+                height: 100px;
+        }
+        
+        __________________
+
+        .box{
+            display: block;
+            background-image: url("https://www.lady-4-lady.ru/wp-content/uploads/2017/01/1484909266-62a2ff7edc4216015813847970e09b97.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            font-size: 30%;
+            font-family: Helvetica;
+
+        }
+        #blur{
+            display: inline-block;
+
+            block-size:  100%;
+            background: rgba(239, 245, 234, 0.5);
+        }
+        #flex{
+            display: inline-block;
+            float: right;
+            font-size: 150%;
+            color:#74ad3e;
+        
+        }
+        #tip{
+
+        background: rgba(225, 246, 208, 0.5); 
+
+        }

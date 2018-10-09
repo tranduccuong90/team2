@@ -10,17 +10,19 @@ body {
 .cover {
         display: inline-block;
         float: right;      
-        margin-bottom: 16px;
-        
-        padding:100px;
+        margin-bottom: 16px;      
+        padding:50px;
         background: rgba(225, 246, 208, 0.5); 
 }
-.top {  
+#container {  
         display: flex;
-        background-image:
+        background: url("https://raw.githubusercontent.com/tranduccuong90/team2/master/cover-pic.jpg") no-repeat;
+        background-size: cover;
         padding-top: 20px;
-        padding-bottom: 20px;
+        height: 400px;
         width: 100%;
+        position: absolute;
+        z-index: 9;
 }
 
 #box{
@@ -50,15 +52,14 @@ body {
 }
 
 #logo{
-                width: 400px;
-                height: 100px;
+                width: 300px;
+                height: 75px;
         }
         
         __________________
 
         .box{
             display: block;
-            background-image: url("https://www.lady-4-lady.ru/wp-content/uploads/2017/01/1484909266-62a2ff7edc4216015813847970e09b97.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;

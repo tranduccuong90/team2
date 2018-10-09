@@ -37,7 +37,7 @@ def caculate():
             need = bmr*1.725
         elif exercise == 4: 
             need = bmr*1.9
-        
+
 #Tính chỉ số BMI, gợi ý tăng giảm cân
         bmi = weight/((height/100)**2)
         if bmi < 18.5:
@@ -49,8 +49,7 @@ def caculate():
         else:
             status = "Béo"
             suggest = need*0.8
-
-        return redirect(url_for("menu", need=need, bmr=bmr, bmi=bmi, status=status, suggest=suggest))
+        return redirect(url_for("menu", need=round(need,2), bmr=bmr, bmi=bmi, status=status, suggest=round(suggest,2)))
         
 @app.route("/menu/<float:need>/<float:bmr>/<status>/<float:suggest>")
 def menu(need, bmr, status, suggest):

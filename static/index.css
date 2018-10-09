@@ -10,8 +10,9 @@ body {
 .cover {
         display: inline-block;
         float: right;      
-        margin-bottom: 16px;      
-        padding:50px;
+        margin-bottom: 16px;
+        
+        padding: 50px;
         background: rgba(225, 246, 208, 0.5); 
 }
 #container {  
@@ -39,50 +40,26 @@ body {
                 font-size:18px;
      
 }
-#footer{
-        position: fixed;
-        left:0;
-        bottom: 0;
+#footer{       
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color:#74ad3e;
         width: 100%;
-        font-size: 50%;
-        background-color: rgba(225, 246, 208, 0.5);
-        color: black;
-        text-align: right;
+        height: 40px;
+        
+        
+        display: flex;
 
+        text-align: center;
+       
+        color: white;
 }
 
-#logo{
-                width: 300px;
-                height: 75px;
-        }
-        
-        __________________
+#footer1{
+        display: block;
+        text-align: center;
+        padding-left: 15px;
+} 
 
-        .box{
-            display: block;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-            font-size: 30%;
-            font-family: Helvetica;
 
-        }
-        #blur{
-            display: inline-block;
 
-            block-size:  100%;
-            background: rgba(239, 245, 234, 0.5);
-        }
-        #flex{
-            display: inline-block;
-            float: right;
-            font-size: 150%;
-            color:#74ad3e;
-        
-        }
-        #tip{
-
-        background: rgba(225, 246, 208, 0.5); 
-
-        }

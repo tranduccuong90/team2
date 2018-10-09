@@ -13,7 +13,7 @@ body {
         float: right;      
         margin-bottom: 16px;
         
-        padding:100px;
+        padding: 50px;
         background: rgba(225, 246, 208, 0.5); 
 }
 .top {  
@@ -44,14 +44,26 @@ body {
                 font-size:18px;
      
 }
-#footer{
-        position: fixed;
-        left:0;
-        bottom: 0;
+#footer{       
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color:#74ad3e;
         width: 100%;
-        font-size: 50%;
-        background-color: rgba(225, 246, 208, 0.5);
-        color: black;
-        text-align: right;
+        height: 40px;
+        
+        
+        display: flex;
 
+        text-align: center;
+       
+        color: white;
 }
+
+#footer1{
+        display: block;
+        text-align: center;
+        padding-left: 15px;
+} 
+
+
+

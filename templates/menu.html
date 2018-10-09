@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/index.css">
     <style>
         .top {  
         display: flex;
@@ -30,8 +30,9 @@
             background-repeat: no-repeat;
             background-size: cover;
             position: relative;
-            font-size: 30%;
+            font-size: 25%;
             font-family: Helvetica;
+            padding: 50px;
             
             
 
@@ -43,9 +44,9 @@
             background: rgba(239, 245, 234, 0.5);
         }
         #flex{
-            display: inline-block;
-            float:right;
-            font-size: 150%;
+            display:block;
+            text-align: center;
+            font-size: 40px;
             color:#74ad3e;
         
         }
@@ -54,6 +55,36 @@
         background: rgba(225, 246, 208, 0.5); 
 
         }
+        #weekday{
+            display: block;
+            text-align: center;
+            font-size: 110px;
+            align-content:center;
+            color: black;
+            font-family: Helvetica, sans-serif;
+            }
+
+
+        #footer{       
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color:#74ad3e;
+        width: 100%;
+        height: 40px;
+        
+        
+        display: flex;
+
+        text-align: center;
+       
+        color: white;
+        }
+
+        #footer1{
+                display: block;
+                text-align: center;
+                padding-left: 15px;
+        } 
 
     </style>
     
@@ -67,16 +98,16 @@
         <h2 id="blur"> <strong>Lượng calorie khuyến cáo: {{ suggest }} calorie/ngày </strong></h2>
     </div>
     <br>
-    <div id="flex"><strong><i>thực đơn chúng tôi khuyên bạn trong 1 tuần</i></strong></div> <br>s
+    <div id="flex"><strong>Thực đơn chúng tôi khuyên bạn trong 1 tuần</strong></div> <br>
    
     <div id="tip">
     {% for menu_list in menu_week %}
         <div class="row">
-            <div class="col-4">
+            <div class="col-4" id="weekday">
                 {% if loop.index+1 == 8 %}
                     Chủ nhật <br>
                 {% else %}
-                    Thứ: {{loop.index+1}} <br>
+                    Thứ {{loop.index+1}} <br>
                 {% endif %}
             </div>
             <div class="col-8 row">
@@ -92,6 +123,9 @@
         <hr>
     {% endfor %}
     
+    </div>
+    <div id="footer">
+            <p id ="footer1"> Good luck. Have fun. </p>
     </div>
 
 </body>

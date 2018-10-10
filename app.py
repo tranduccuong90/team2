@@ -94,6 +94,7 @@ def menu(need, bmr, status, suggest):
             menu_list.append(snack)
         menu_week.append(menu_list)
 
+   
     return render_template('menu.html', bmr=bmr, status=status, need=need, suggest=suggest, menu_week=menu_week)
 
 if __name__ == "__main__":

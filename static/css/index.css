@@ -1,0 +1,69 @@
+body { 
+        background-image: url('http://ew.content.allrecipes.com/sites/default/files/2017-08/1-day-diabetes-plan-dl-102775691_1.jpg');
+        height: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin: 0;
+        font-family: Helvetica, sans-serif;
+}
+.cover {
+        display: inline-block;
+        float: right;      
+        margin-bottom: 16px;
+        
+        padding: 50px;
+        background: rgba(225, 246, 208, 0.5); 
+}
+.top {  
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color:#74ad3e;
+        width: 100%;
+        
+}
+#logo{
+        width: 400px;
+        height: 100px;
+
+}
+
+#box{
+       font-size: 20px ;
+       padding-left: 20px;
+}
+
+.bmi{
+      
+                background: rgba(225, 246, 208, 0.5);
+                padding :20px;
+                margin-bottom: 32px;
+                padding:25px;
+                font-size:18px;
+     
+}
+#footer{       
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color:#74ad3e;
+        width: 100%;
+        height: 40px;
+        
+        
+        display: flex;
+
+        text-align: center;
+       
+        color: white;
+}
+
+#footer1{
+        display: block;
+        text-align: center;
+        padding-left: 15px;
+} 
+
+
+
